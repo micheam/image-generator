@@ -1,3 +1,5 @@
+github.com/micheam/image-generator v0.0.0-20190409170402-faee494887c0 h1:KpKQOrIOD20LjQOu8JuP2rMqXrTAWzsV0R2vbjcwPrY=
+github.com/micheam/image-generator v0.0.0-20190409170402-faee494887c0/go.mod h1:ajb05mMH57XjlNMPMUIbTgHMu+Iz9SA1qtJdLDkZhr4=
 github.com/pkg/errors v0.8.1 h1:iURUrRGxPUNPdy5/HRSm+Yj6okJ6UtLINN0Q9M4+h3I=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/urfave/cli v1.20.0 h1:fDqGv3UG/4jbVl/QkFwEdddtEDjh/5Ov6X+0B/3bPaw=

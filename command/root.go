@@ -12,42 +12,29 @@ import (
 	"os"
 )
 
-// CmdGenerate is a command spec of generate-image
-var CmdGenerate = cli.Command{
-	Name:    "generate",
-	Aliases: []string{"gen"},
-	Usage:   "generate image",
-	Description: `
-    Generate image file with specified format.
-    If it can be determined from the file extension,
-    specification of the format can be omitted.`,
+// RootFlag is flag list for root command
+var RootFlag = []cli.Flag{
 
-	Flags: []cli.Flag{
-		cli.StringFlag{
-			Name:  "out, o",
-			Usage: "out `file` name",
-		},
-		cli.StringFlag{
-			Name:  "format, f",
-			Usage: "out image `format`. jpg or png",
-		},
-		cli.IntFlag{
-			Name:  "width",
-			Usage: "image width by pixel",
-			Value: 200,
-		},
-		cli.IntFlag{
-			Name:  "height",
-			Usage: "image height by pixel",
-			Value: 100,
-		},
+	cli.StringFlag{
+		Name:  "format, f",
+		Usage: "image `format`. jpg or png",
 	},
-	Action: doGenerate,
+	cli.IntFlag{
+		Name:  "width",
+		Usage: "image width by pixel",
+		Value: 200,
+	},
+	cli.IntFlag{
+		Name:  "height",
+		Usage: "image height by pixel",
+		Value: 100,
+	},
 }
 
-func doGenerate(c *cli.Context) error {
+// DoGenerate is a Action for root command
+func DoGenerate(c *cli.Context) error {
 
-	outfile := c.String("out")
+	outfile := c.Args().First()
 	if outfile == "" {
 		return errors.New("no output file name specified")
 	}

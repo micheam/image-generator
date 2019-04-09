@@ -5,10 +5,11 @@ import (
 	"github.com/urfave/cli"
 	"os"
 
-	"github.com/micheam/image-generator/command"
+	"github.com/micheam/gen-img/command"
 )
 
 const version = "0.1.0"
+const appName = "gen-img"
 
 func main() {
 	err := newApp().Run(os.Args)
@@ -20,15 +21,20 @@ func main() {
 
 func newApp() *cli.App {
 	app := cli.NewApp()
-	app.Name = "image-generator"
-	app.Usage = "Generate image with spesified format, size, color."
+	app.Name = appName
+	app.Usage = "Generate image with spesified format, size."
 	app.Version = version
 	app.Author = "Michto Maeda"
 	app.Email = "michito.maeda@gmail.com"
-	app.Commands = commands
-	return app
-}
 
-var commands = []cli.Command{
-	command.CmdGenerate,
+	app.Action = command.DoGenerate
+	app.ArgsUsage = "[out-file-name]"
+	app.Flags = command.RootFlag
+
+	app.Description = `
+    Generate image with specified format.
+    If it can be determined from the out-file extension,
+    specification of the format can be omitted.`
+
+	return app
 }

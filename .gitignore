@@ -22,3 +22,5 @@
 # End of https://www.gitignore.io/api/go
 
 image-generator
+gen-img
+.DS_Store
